@@ -1,0 +1,47 @@
+
+Function/Method	Return Value	Usage
+gs.getUser()	Returns a reference to the user object for the currently logged-in user.	var userObject = gs.getUser();
+gs.getUserByID()	Returns a reference to the user object for the user ID (or sys_id) provided.	var userObject = gs.getUser().getUserByID('employee');
+gs.getUserName()	Returns the User ID (user_name) for the currently logged-in user.
+e.g. 'employee'	var user_name = gs.getUserName();
+gs.getUserDisplayName()	Returns the display value for the currently logged-in user.
+e.g. 'Joe Employee'	var userDisplay = gs.getUserDisplayName();
+gs.getUserID()	Returns the sys_id string value for the currently logged-in user.	var userID = gs.getUserID();
+getFirstName()	Returns the first name of the currently logged-in user.	var firstName = gs.getUser().getFirstName();
+getLastName()	Returns the last name of the currently logged-in user.	var lastName = gs.getUser().getLastName();
+getEmail()	Returns the email address of the currently logged-in user.	var email = gs.getUser().getEmail();
+getDepartmentID()	Returns the department sys_id of the currently logged-in user.	var deptID = gs.getUser().getDepartmentID();
+getCompanyID()	Returns the company sys_id of the currently logged-in user.	var companyID = gs.getUser().getCompanyID();
+getCompanyRecord()	Returns the company GlideRecord of the currently logged-in user.	var company = gs.getUser().getCompanyRecord();
+getLanguage()	Returns the language of the currently logged-in user.	var language = gs.getUser().getLanguage();
+getLocation()	Returns the location of the currently logged-in user.	var location = gs.getUser().getLocation();
+getDomainID()	Returns the domain sys_id of the currently logged-in user (only used for instances using domain separation).	var domainID = gs.getUser().getDomainID();
+getDomainDisplayValue()	Returns the domain display value of the currently logged-in user (only used for instances using domain separation).	var domainName = gs.getUser().getDomainDisplayValue();
+getManagerID()	Returns the manager sys_id of the currently logged-in user.	var managerID = gs.getUser().getManagerID();
+getMyGroups()	Returns a list of all groups that the currently logged-in user is a member of.	var groups = gs.getUser().getMyGroups();
+isMemberOf()	Returns true if the user is a member of the given group, false otherwise.	Takes either a group sys_id or a group name as an argument.
+
+if(gs.getUser().isMemberOf(current.assignment_group)){
+//Do something...
+}
+
+var isMember = gs.getUser().isMemberOf('Hardware');
+
+To do this for a user that isn't the currently logged-in user...
+
+var user = 'admin';
+var group = "Hardware";
+if (gs.getUser().getUserByID(user).isMemberOf(group)){
+gs.log( gr.user_name + " is a member of " + group);
+}
+
+else{
+gs.log( gr.user_name + " is NOT a member of " + group);
+}
+gs.hasRole()	Returns true if the user has the given role, false otherwise.	if(gs.hasRole('itil')){ //Do something... }
+gs.hasRole()	Returns true if the user has one of the given roles, false otherwise.	if(gs.hasRole('itil,admin')){
+//If user has 'itil' OR 'admin' role then Do something...
+}
+hasRoles()	Returns true if the user has any roles at all, false if the user has no role (i.e. an ess user).	if(!gs.getUser().hasRoles()){
+//User is an ess user...
+}

@@ -1,0 +1,28 @@
+Testing of SLICE additional notifications.
+
+1. Navigate here to create a new record: https://cmudev01.service-now.com/nav_to.do?uri=%2Fx_camu_cmu_install_installation_applications.do%3Fsys_id%3D-1%26sys_is_list%3Dtrue%26sys_target%3Dx_camu_cmu_install_installation_applications%26sysparm_checked_items%3D%26sysparm_fixed_query%3D%26sysparm_group_sort%3D%26sysparm_list_css%3D%26sysparm_query%3D%26sysparm_referring_url%3Dx_camu_cmu_install_installation_applications_list.do%253fsysparm_clear_stack%253dtrue%26sysparm_target%3D%26sysparm_view%3D
+2. Fill out the mandatory fields on the record.
+3. Add an approval group for the Approvers
+4. Click the UI Action set to Submitted.
+5. As a admin navigate to https://cmudev01.service-now.com/nav_to.do?uri=%2Fsys_email_list.do%3Fsysparm_userpref_module%3D0271f5510a0a0b6100921bb97ead33ac%26sysparm_view%3Dsent%26sysparm_query%3Dmailbox%3Dsent%5Esys_created_onONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)%5EEQ%26sysparm_clear_stack%3Dtrue
+6. Click the ‘Created’ column to sort by most recently created
+7. Find the email with the recipient kpalko@andrew.cmu.edu and a subject of (number) -  Application for Test has been submitted. Click into this email by clicking the date.
+8. Scroll down to the related links and click ‘Preview HTML body’ and review the email body.
+9. Navigate back to the installation application previously created.
+10. Add a comment in the ‘Additional Comments’ variable and click ‘Post’
+11. As a admin navigate to https://cmudev01.service-now.com/nav_to.do?uri=%2Fsys_email_list.do%3Fsysparm_userpref_module%3D0271f5510a0a0b6100921bb97ead33ac%26sysparm_view%3Dsent%26sysparm_query%3Dmailbox%3Dsent%5Esys_created_onONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)%5EEQ%26sysparm_clear_stack%3Dtrue
+12. Click the ‘Created’ column to sort by most recently created
+13. Find the email with the recipient kpalko@andrew.cmu.edu and a subject of (number) -  Application for Test has a new comment. Click into this email by clicking the date.
+14. Scroll down to the related links and click ‘Preview HTML body’ and review the email body.
+15. Navigate back to the installation application previously created.
+16. Click the ‘Status’ dropdown and change to ‘Approved’ and save the record.
+17. As a admin navigate to https://cmudev01.service-now.com/nav_to.do?uri=%2Fsys_email_list.do%3Fsysparm_userpref_module%3D0271f5510a0a0b6100921bb97ead33ac%26sysparm_view%3Dsent%26sysparm_query%3Dmailbox%3Dsent%5Esys_created_onONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)%5EEQ%26sysparm_clear_stack%3Dtrue
+18. Click the ‘Created’ column to sort by most recently created
+19. Find the email with the recipient kpalko@andrew.cmu.edu and a subject of (number) -  (short description) has been approved
+20. Scroll down to the related links and click ‘Preview HTML body’ and review the email body.
+21. Navigate back to the installation application previously created.
+22. Click the ‘Status’ dropdown and change to ‘Approved’ and save the record.
+23. As a admin navigate to https://cmudev01.service-now.com/nav_to.do?uri=%2Fsys_email_list.do%3Fsysparm_userpref_module%3D0271f5510a0a0b6100921bb97ead33ac%26sysparm_view%3Dsent%26sysparm_query%3Dmailbox%3Dsent%5Esys_created_onONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)%5EEQ%26sysparm_clear_stack%3Dtrue
+24. Click the ‘Created’ column to sort by most recently created
+25. Find the email with the recipient kpalko@andrew.cmu.edu and a subject of (number) -  Application for Test has been withdrawn. Click into this email by clicking the date.
+26. Scroll down to the related links and click ‘Preview HTML body’ and review the email body.

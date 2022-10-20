@@ -1,0 +1,30 @@
+Remind SLICE of Stakeholder Approval Inactivity
+1.	Navigate here to create a new record: https://cmudev01.service-now.com/nav_to.do?uri=%2Fx_camu_cmu_install_installation_applications.do%3Fsys_id%3D-1%26sys_is_list%3Dtrue%26sys_target%3Dx_camu_cmu_install_installation_applications%26sysparm_checked_items%3D%26sysparm_fixed_query%3D%26sysparm_group_sort%3D%26sysparm_list_css%3D%26sysparm_query%3D%26sysparm_referring_url%3Dx_camu_cmu_install_installation_applications_list.do%253fsysparm_clear_stack%253dtrue%26sysparm_target%3D%26sysparm_view%3D
+2.	Fill out the mandatory fields on the record.
+3.	Add an approval group for the Approvers
+4.	Click the submit UI Action
+5.	Click the Send for Stakeholder Approval UI Action
+6.	Wait until the next 8AM after 72 hours of inactivity for the approval reminder to SLICE to fire. (The job runs at 8AM daily to check the approvals)
+7.	As an Admin visit the outbox: https://cmudev01.service-now.com/nav_to.do?uri=%2Fsys_email_list.do%3Fsysparm_userpref_module%3D0271bb720a0a0b610089873ececf22c4%26sysparm_view%3Doutbox%26sysparm_query%3Dmailbox%3Doutbox%5Esys_created_onONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)%5EEQ%26sysparm_clear_stack%3Dtrue
+8.	Find the notification in the mailbox to the SLICE group with the subject: ${sysapproval.number} - Application for ${sysapproval.short_description} has pending approvals
+
+Remind SLICE of Dean Approval Inactivity
+1.	Navigate here to create a new record: https://cmudev01.service-now.com/nav_to.do?uri=%2Fx_camu_cmu_install_installation_applications.do%3Fsys_id%3D-1%26sys_is_list%3Dtrue%26sys_target%3Dx_camu_cmu_install_installation_applications%26sysparm_checked_items%3D%26sysparm_fixed_query%3D%26sysparm_group_sort%3D%26sysparm_list_css%3D%26sysparm_query%3D%26sysparm_referring_url%3Dx_camu_cmu_install_installation_applications_list.do%253fsysparm_clear_stack%253dtrue%26sysparm_target%3D%26sysparm_view%3D
+2.	Fill out the mandatory fields on the record.
+3.	Add an approval group for the Approvers
+4.	Click the submit UI Action
+5.	Click the status field and change to Dean of Students Approval
+6.	Click the save UI Action
+7.	Wait until the next 8AM after 72 hours of inactivity for the approval reminder to SLICE to fire. (The job runs at 8AM daily to check the approvals)
+8.	As an Admin visit the outbox: https://cmudev01.service-now.com/nav_to.do?uri=%2Fsys_email_list.do%3Fsysparm_userpref_module%3D0271bb720a0a0b610089873ececf22c4%26sysparm_view%3Doutbox%26sysparm_query%3Dmailbox%3Doutbox%5Esys_created_onONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)%5EEQ%26sysparm_clear_stack%3Dtrue
+9.	Find the notification in the mailbox to the SLICE group with the subject: ${sysapproval.number} - Application for ${sysapproval.short_description} has pending approvals
+
+Remind SLICE of Stakeholder Approval Inactivity (set the timer to 31 minutes rather than 31 days)
+1.	Navigate here to create a new record: https://cmudev01.service-now.com/nav_to.do?uri=%2Fx_camu_cmu_install_installation_applications.do%3Fsys_id%3D-1%26sys_is_list%3Dtrue%26sys_target%3Dx_camu_cmu_install_installation_applications%26sysparm_checked_items%3D%26sysparm_fixed_query%3D%26sysparm_group_sort%3D%26sysparm_list_css%3D%26sysparm_query%3D%26sysparm_referring_url%3Dx_camu_cmu_install_installation_applications_list.do%253fsysparm_clear_stack%253dtrue%26sysparm_target%3D%26sysparm_view%3D
+2.	Fill out the mandatory fields on the record.
+3.	Save the record.
+4.	Click the status field and set the status to ‘Draft’
+5.	Navigate to the outbox: https://cmudev01.service-now.com/nav_to.do?uri=%2Fsys_email_list.do%3Fsysparm_userpref_module%3D0271bb720a0a0b610089873ececf22c4%26sysparm_view%3Doutbox%26sysparm_query%3Dmailbox%3Doutbox%5Esys_created_onONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)%5EEQ%26sysparm_clear_stack%3Dtrue
+6.	Wait 7 Minutes for an email to be created with the subject: ${number} - Application for ${short_description} reminder
+7.	Wait 28 minutes for an email to be created with the subject: ${number} - Application for ${short_description} may be withdrawn
+8.	Wait 31 minutes and navigate back to the original record and watch the status is changed to ‘Withdrawn’

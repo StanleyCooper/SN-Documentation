@@ -1,0 +1,35 @@
+Steps to test:
+-Navigate to the following URL: https://aptrisdev.service-now.com/navpage.do
+-Navigate to Cases  > Create New
+-In the account field select Harvard Medical School
+-In the contact field select Cristol Gregory
+-In the Entitlement field select Harvard Medical School SmartTeam
+-In the tab Acceptance Criteria put 2 in the planned effort field.
+-Right click the header and save the record.
+-Verify the case was created successfully.
+-Verify that under the Acceptance Criteria tab the field Planned Effort with Enhancements is 'read-only' and has a value of 2.
+-Scroll to the bottom and find the 'Defects' tab.
+-Click "New" to create new defect.
+-In the planned effort field put 1
+-In the short description field put 'Test'
+-Click submit on the Defect record.
+-Navigate back to the parent 'Case' record
+-Verify that in the Defect related list you can now see the newly created defect.
+-Scroll to the bottom and find the 'Enhancements' tab.
+-Click "New" to create new Enhancements.
+-In the planned effort field put 2
+-In the short description field put 'Test'
+-Click submit on the Enhancements record.
+-Navigate back to the parent 'Case' record
+-Verify that in the Enhancements related list you can now see the newly created Enhancements.
+-Verify that under the Acceptance Criteria tab the field Planned Effort with Enhancements is 'read-only' and has a value of 4.
+-Click "New" to create new Enhancements.
+-In the planned effort field put 5
+-In the short description field put 'Test'
+-Click submit on the Enhancements record.
+-Navigate back to the parent 'Case' record
+-Verify that in the Enhancements related list you can now see the newly created Enhancements.
+-Verify that under the Acceptance Criteria tab the field Planned Effort with Enhancements is 'read-only' and has a value of 9.
+-Under the Acceptance Criteria tab enter 3 into the planned effort field.
+-Save the record
+-Verify that under the Acceptance Criteria tab the field Planned Effort with Enhancements is 'read-only' and has a value of 10.

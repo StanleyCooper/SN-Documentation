@@ -1,0 +1,15 @@
+
+g_user Property or Method	Return value
+g_user.userName	User name of the current user e.g. employee
+g_user.firstName	First name of the current user e.g. Joe
+g_user.lastName	Last name of the current user e.g. Employee
+g_user.userID	sys_id of the current user e.g. 681ccaf9c0a8016400b98a06818d57c7
+g_user.hasRole()	True if the current user has the role specified, false otherwise. ALWAYS returns true if the user has the 'admin' role.
+
+Usage: g_user.hasRole('itil')
+g_user.hasRoleExactly()	True if the current user has the exact role specified, false otherwise, regardless of 'admin' role.
+
+Usage: g_user.hasRoleExactly('itil')
+g_user.hasRoles()	True if the current user has at least one role specified, false otherwise.
+
+Usage: g_user.hasRoles('itil','admin')

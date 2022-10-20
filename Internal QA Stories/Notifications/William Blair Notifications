@@ -1,0 +1,382 @@
+Notification 2
+
+Testing the creation of an incident, saving and then populating assignment group
+1. Create a new incident with the following fields filled out: (visit incident form here: https://williamblairdev.service-now.com/incident.do?sys_id=-1)
+  -Caller: Don Kenyan
+  -Affected User: Melvin Martin
+  -Category: Hardware
+  -Subcategory: Error
+  -Business Service: collaboration
+  -Short Description: Incident assigned to my Group
+  -Description: This is a test of the incident assigned to my group notification.
+2. Save record
+3. Update assignment group field to 'ServiceNow-AV'
+4. Save the record - note the time/incident number
+5. Wait a minute and visit the sent mail box and verify that a message was sent to the Assignment Group 'ServiceNow-AV' at approximately the time saved
+  -URL to sent mail: https://williamblairdev.service-now.com/nav_to.do?uri=%2Fsys_email_list.do%3Fsysparm_userpref_module%3D0271f5510a0a0b6100921bb97ead33ac%26sysparm_view%3Dsent%26sysparm_query%3Dmailbox%3Dsent%5Esys_created_onONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)%5EEQ%26sysparm_clear_stack%3Dtrue
+6. Click into the notification with the incident number in the subject line
+7. Scroll down the record to the related link 'Preview HTML Body' and click it to verify the emails body. It should contain:
+  -Subject: ${number} has been assigned to ${assignment_group}
+  -Body:
+    -Caller
+    -affected user
+    -description
+    -priority
+    -take_me_to_incident button/script.
+
+Testing the creation of an incident with the assignment group populated
+1. Create a new incident with the following fields filled out: (visit incident form here: https://williamblairdev.service-now.com/incident.do?sys_id=-1)
+  -Caller: Don Kenyan
+  -Affected User: Melvin Martin
+  -Category: Hardware
+  -Subcategory: Error
+  -Business Service: collaboration
+  -Short Description: Incident assigned to my Group
+  -Description: This is a test of the incident assigned to my group notification.
+  -Assignment Group: ServiceNow-AV
+2. Submit the record - note the time/incident number
+3. Wait a minute and visit the sent mail box and verify that a message was sent to the Assignment Group 'ServiceNow-AV' at approximately the time saved
+  -URL to sent mail: https://williamblairdev.service-now.com/nav_to.do?uri=%2Fsys_email_list.do%3Fsysparm_userpref_module%3D0271f5510a0a0b6100921bb97ead33ac%26sysparm_view%3Dsent%26sysparm_query%3Dmailbox%3Dsent%5Esys_created_onONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)%5EEQ%26sysparm_clear_stack%3Dtrue
+4. Click into the notification with the incident number in the subject line
+5. Scroll down the record to the related link 'Preview HTML Body' and click it to verify the emails body. It should contain:
+  -Subject: ${number} has been assigned to ${assignment_group}
+  -Body:
+    -Caller
+    -affected user
+    -description
+    -priority
+    -take_me_to_incident button/script.
+
+Notification 3/4
+1. Create a new incident with the following fields filled out: (visit incident form here: https://williamblairdev.service-now.com/incident.do?sys_id=-1)
+  -Caller: Neal Barron
+  -Affected User: Melvin Martin
+  -Category: Hardware
+  -Subcategory: Error
+  -Business Service: collaboration
+  -Short Description: Incident assigned to user
+  -Description: This is a test of the incident assigned to notification.
+  -Assignment Group: ServiceNow-AV
+2. Save the record
+3. Update the 'Assigned to' field with Don Kenyan
+4. Save the record - note the time/incident number
+5. Wait a minute and visit the sent mail box and verify that a message was sent to the Assignment Group Neal Barron and Melvin Martin at approximately the time saved
+    -URL to sent mail: https://williamblairdev.service-now.com/nav_to.do?uri=%2Fsys_email_list.do%3Fsysparm_userpref_module%3D0271f5510a0a0b6100921bb97ead33ac%26sysparm_view%3Dsent%26sysparm_query%3Dmailbox%3Dsent%5Esys_created_onONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)%5EEQ%26sysparm_clear_stack%3Dtrue
+6. Click into the notification with the subject line "INC# has been assigned to Don Kenyan" and sent to Neal Barron and Melvin Martin
+7. Scroll down the record to the related link 'Preview HTML Body' and click it to verify the emails body. It should contain:
+    -Subject: ${number} has been assigned to Don Kenyan
+    -Body:
+      user first name,
+
+        Your incident has been assigned to ${assigned_to.first_name} ${assigned_to.last_name}, who can be reached at ${assigned_to.phone} or you may reply directly to this email to communicate with your technician.
+
+        Short Description: Incident assigned to user
+8. Navigate back to the sent mail
+  -URL to sent mail: https://williamblairdev.service-now.com/nav_to.do?uri=%2Fsys_email_list.do%3Fsysparm_userpref_module%3D0271f5510a0a0b6100921bb97ead33ac%26sysparm_view%3Dsent%26sysparm_query%3Dmailbox%3Dsent%5Esys_created_onONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)%5EEQ%26sysparm_clear_stack%3Dtrue
+9. Click into the notification with the subject line "INC# has been assigned to you" and sent to Don Kenyon
+10. Scroll down the record to the related link 'Preview HTML Body' and click it to verify the emails body. It should contain:
+  -Subject: ${number} has been assigned to you
+  -Body:
+    -Caller
+    -affected user
+    -description
+    -priority
+    -take_me_to_incident button/script.
+11. Impersonate Don Kenyan
+12. Create a new incident with the following fields filled out: (visit incident form here: https://williamblairdev.service-now.com/incident.do?sys_id=-1)
+  -Caller: Neal Barron
+  -Affected User: Melvin Martin
+  -Category: Hardware
+  -Subcategory: Error
+  -Business Service: collaboration
+  -Short Description: Incident assigned to user
+  -Description: This is a test of the incident assigned to notification.
+  -Assignment Group: ServiceNow-AV
+13. Save the record
+14. Update the 'Assigned to' field with Don Kenyan
+15. Save the record - note the time/incident number
+16. Un-Impersonate Don Kenyan
+17. Wait a minute and visit the sent mail box and verify that a message was sent to the Assignment Group Neal Barron and Melvin Martin at approximately the time saved
+    -URL to sent mail: https://williamblairdev.service-now.com/nav_to.do?uri=%2Fsys_email_list.do%3Fsysparm_userpref_module%3D0271f5510a0a0b6100921bb97ead33ac%26sysparm_view%3Dsent%26sysparm_query%3Dmailbox%3Dsent%5Esys_created_onONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)%5EEQ%26sysparm_clear_stack%3Dtrue
+18. Verify that there was no notification sent with the same properties as the notification in step 9.
+
+Notification 5
+1. Create a new incident with the following fields filled out: (visit incident form here: https://williamblairdev.service-now.com/incident.do?sys_id=-1)
+  -Caller: Neal Barron
+  -Affected User: Melvin Martin
+  -Category: Hardware
+  -Subcategory: Error
+  -Business Service: collaboration
+  -Short Description: Incident additional comments
+  -Description: This is a test of the incident additional comments notification
+  -Assignment Group: ServiceNow-AV
+2. Save the incident.
+3. Enter additional comments of: Additional Comments test 1
+  - take note of the time saved and INC number.
+3. Wait a minute and visit the sent mail box and verify that a message was sent to the Assignment Group Neal Barron and Melvin Martin at approximately the time saved
+    -URL to sent mail: https://williamblairdev.service-now.com/nav_to.do?uri=%2Fsys_email_list.do%3Fsysparm_userpref_module%3D0271f5510a0a0b6100921bb97ead33ac%26sysparm_view%3Dsent%26sysparm_query%3Dmailbox%3Dsent%5Esys_created_onONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)%5EEQ%26sysparm_clear_stack%3Dtrue
+4. Click into the notification with the subject line 'Your Incident INC has comments added' generated about the time additional comments were added
+5. Verify the recipients are Melvin Martin and Neal Barron.
+6. Scroll down the record to the related link 'Preview HTML Body' and click it to verify the emails body. It should contain:
+  -Body:
+    Dear Neal,
+
+    Additional comments have been added to your Incident:
+
+    2019-04-24 09:22:49 CDT - Rich Cheek (Additional comments) Additional Comments Test 1
+7. Wait two minutes and navigate back to the incident that you had opened.
+8. Enter additional comments of: Additional Comments test 2
+  - take note of the time saved and INC number.
+9. Wait a minute and visit the sent mail box and verify that a message was sent to the Assignment Group Neal Barron and Melvin Martin at approximately the time saved
+    -URL to sent mail: https://williamblairdev.service-now.com/nav_to.do?uri=%2Fsys_email_list.do%3Fsysparm_userpref_module%3D0271f5510a0a0b6100921bb97ead33ac%26sysparm_view%3Dsent%26sysparm_query%3Dmailbox%3Dsent%5Esys_created_onONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)%5EEQ%26sysparm_clear_stack%3Dtrue
+10. Click into the notification with the subject line 'Your Incident INC has comments added' generated about the time additional comments were added
+11. Verify the recipients are Melvin Martin and Neal Barron.
+12. Scroll down the record to the related link 'Preview HTML Body' and click it to verify the emails body. It should contain:
+  -Body:
+    Dear Neal,
+
+    Additional comments have been added to your Incident:
+
+    2019-04-24 09:22:49 CDT - Rich Cheek (Additional comments) Additional Comments Test 2
+
+    2019-04-24 09:22:49 CDT - Rich Cheek (Additional comments) Additional Comments Test 1
+13. Wait two minutes and navigate back to the incident that you had opened.
+14. Enter additional comments of: Additional Comments test 3
+  - take note of the time saved and INC number.
+15. Wait a minute and visit the sent mail box and verify that a message was sent to the Assignment Group Neal Barron and Melvin Martin at approximately the time saved
+  -URL to sent mail: https://williamblairdev.service-now.com/nav_to.do?uri=%2Fsys_email_list.do%3Fsysparm_userpref_module%3D0271f5510a0a0b6100921bb97ead33ac%26sysparm_view%3Dsent%26sysparm_query%3Dmailbox%3Dsent%5Esys_created_onONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)%5EEQ%26sysparm_clear_stack%3Dtrue
+16. Click into the notification with the subject line 'Your Incident INC has comments added' generated about the time additional comments were added
+17. Verify the recipients are Melvin Martin and Neal Barron.
+18. Scroll down the record to the related link 'Preview HTML Body' and click it to verify the emails body. It should contain:
+      -Body:
+        Dear Neal,
+
+        Additional comments have been added to your Incident:
+
+        2019-04-24 09:22:49 CDT - Rich Cheek (Additional comments) Additional Comments Test 3
+
+        2019-04-24 09:22:49 CDT - Rich Cheek (Additional comments) Additional Comments Test 2
+
+        2019-04-24 09:22:49 CDT - Rich Cheek (Additional comments) Additional Comments Test 1
+13. Wait two minutes and navigate back to the incident that you had opened.
+14. Enter additional comments of: Additional Comments test 4
+  - take note of the time saved and INC number.
+15. Wait a minute and visit the sent mail box and verify that a message was sent to the Assignment Group Neal Barron and Melvin Martin at approximately the time saved
+  -URL to sent mail: https://williamblairdev.service-now.com/nav_to.do?uri=%2Fsys_email_list.do%3Fsysparm_userpref_module%3D0271f5510a0a0b6100921bb97ead33ac%26sysparm_view%3Dsent%26sysparm_query%3Dmailbox%3Dsent%5Esys_created_onONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)%5EEQ%26sysparm_clear_stack%3Dtrue
+16. Click into the notification with the subject line 'Your Incident INC has comments added' generated about the time additional comments were added
+17. Verify the recipients are Melvin Martin and Neal Barron.
+18. Scroll down the record to the related link 'Preview HTML Body' and click it to verify the emails body. It should contain:
+      -Body:
+                Dear Neal,
+
+                Additional comments have been added to your Incident:
+
+                2019-04-24 09:22:49 CDT - Rich Cheek (Additional comments) Additional Comments Test 4
+
+                2019-04-24 09:22:49 CDT - Rich Cheek (Additional comments) Additional Comments Test 3
+
+                2019-04-24 09:22:49 CDT - Rich Cheek (Additional comments) Additional Comments Test 2
+                Notification 6
+
+                1. Create a new incident with the following fields filled out: (visit incident form here: https://williamblairdev.service-now.com/incident.do?sys_id=-1)
+                  -Caller: Neal Barron
+                  -Affected User: Melvin Martin
+                  -Category: Hardware
+                  -Subcategory: Error
+                  -Business Service: collaboration
+                  -Short Description: Incident Work Notes
+                  -Description: This is a test of the incident Work Notes notification
+                  -Assignment Group: ServiceNow-AV
+                  -Assigned to: Don Kenyon
+                2. Save the incident. Wait two minutes
+                3. Enter Work Notes of: Work Notes test 1
+                  - take note of the time saved and INC number.
+                3. Wait a minute and visit the sent mail box and verify that a message was sent to Don Kenyon at approximately the time saved
+                    -URL to sent mail: https://williamblairdev.service-now.com/nav_to.do?uri=%2Fsys_email_list.do%3Fsysparm_userpref_module%3D0271f5510a0a0b6100921bb97ead33ac%26sysparm_view%3Dsent%26sysparm_query%3Dmailbox%3Dsent%5Esys_created_onONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)%5EEQ%26sysparm_clear_stack%3Dtrue
+                4. Click into the notification with the subject line 'INC0010708 has new work notes' generated about the time Work Notes were added
+                5. Verify the recipient is the Don Kenyon.
+                6. Scroll down the record to the related link 'Preview HTML Body' and click it to verify the emails body. It should contain:
+                  -Body:
+                    -2019-04-24 09:36:37 CDT - Rich Cheek (Work notes) Work Notes Test 1
+                    -Take me to the incident
+                7. Wait two minutes and navigate back to the incident that you had opened.
+                8. Enter Work Notes of: Work Notes test 2
+                  - take note of the time saved and INC number.
+                9. Wait a minute and visit the sent mail box and verify that a message was sent to Don Kenyon at approximately the time saved
+                    -URL to sent mail: https://williamblairdev.service-now.com/nav_to.do?uri=%2Fsys_email_list.do%3Fsysparm_userpref_module%3D0271f5510a0a0b6100921bb97ead33ac%26sysparm_view%3Dsent%26sysparm_query%3Dmailbox%3Dsent%5Esys_created_onONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)%5EEQ%26sysparm_clear_stack%3Dtrue
+                10. Click into the notification with the subject line 'INC0010708 has new work notes' generated about the time Work Notes were added
+                11. Verify the recipient is the Don Kenyon.
+                12. Scroll down the record to the related link 'Preview HTML Body' and click it to verify the emails body. It should contain:
+                -Body:
+                  -2019-04-24 09:36:37 CDT - Rich Cheek (Work notes) Work Notes Test 2
+                  -2019-04-24 09:36:37 CDT - Rich Cheek (Work notes) Work Notes Test 1
+                  -Take me to the incident
+                13. Wait two minutes and navigate back to the incident that you had opened.
+                14. Enter Work Notes of: Work Notes test 3
+                  - take note of the time saved and INC number.
+                15. Wait a minute and visit the sent mail box and verify that a message was sent to Don Kenyon at approximately the time saved
+                  -URL to sent mail: https://williamblairdev.service-now.com/nav_to.do?uri=%2Fsys_email_list.do%3Fsysparm_userpref_module%3D0271f5510a0a0b6100921bb97ead33ac%26sysparm_view%3Dsent%26sysparm_query%3Dmailbox%3Dsent%5Esys_created_onONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)%5EEQ%26sysparm_clear_stack%3Dtrue
+                16. Click into the notification with the subject line 'INC0010708 has new work notes' generated about the time Work Notes were added
+                17. Verify the recipient is the Don Kenyon.
+                18. Scroll down the record to the related link 'Preview HTML Body' and click it to verify the emails body. It should contain:
+                -Body:
+                  -2019-04-24 09:36:37 CDT - Rich Cheek (Work notes) Work Notes Test 3
+                  -2019-04-24 09:36:37 CDT - Rich Cheek (Work notes) Work Notes Test 2
+                  -2019-04-24 09:36:37 CDT - Rich Cheek (Work notes) Work Notes Test 1
+                  -Take me to the incident
+                13. Wait two minutes and navigate back to the incident that you had opened.
+                14. Enter Work Notes of: Work Notes test 4
+                  - take note of the time saved and INC number.
+                15. Wait a minute and visit the sent mail box and verify that a message was sent to Don Kenyon at approximately the time saved
+                  -URL to sent mail: https://williamblairdev.service-now.com/nav_to.do?uri=%2Fsys_email_list.do%3Fsysparm_userpref_module%3D0271f5510a0a0b6100921bb97ead33ac%26sysparm_view%3Dsent%26sysparm_query%3Dmailbox%3Dsent%5Esys_created_onONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)%5EEQ%26sysparm_clear_stack%3Dtrue
+                16. Click into the notification with the subject line 'INC0010708 has new work notes' generated about the time Work Notes were added
+                17. Verify the recipient is the Don Kenyon.
+                18. Scroll down the record to the related link 'Preview HTML Body' and click it to verify the emails body. It should contain:
+                -Body:
+                  -2019-04-24 09:36:37 CDT - Rich Cheek (Work notes) Work Notes Test 4
+                  -2019-04-24 09:36:37 CDT - Rich Cheek (Work notes) Work Notes Test 3
+                  -2019-04-24 09:36:37 CDT - Rich Cheek (Work notes) Work Notes Test 2
+                  -Take me to the incident
+
+
+                  Notification 7
+
+                  1. Create a new incident with the following fields filled out: (visit incident form here: https://williamblairdev.service-now.com/incident.do?sys_id=-1)
+                    -Caller: Neal Barron
+                    -Affected User: Melvin Martin
+                    -Category: Hardware
+                    -Subcategory: Error
+                    -Business Service: collaboration
+                    -Short Description: Incident Work Notes
+                    -Description: This is a test of the incident Work Notes notification
+                    -Assignment Group: ServiceNow-AV
+                  2. Save the incident.
+                  3. Enter Work Notes of: Work Notes test 1
+                    - take note of the time saved and INC number.
+                  3. Wait a minute and visit the sent mail box and verify that a message was sent to the Assignment Group ServiceNow-AV at approximately the time saved
+                      -URL to sent mail: https://williamblairdev.service-now.com/nav_to.do?uri=%2Fsys_email_list.do%3Fsysparm_userpref_module%3D0271f5510a0a0b6100921bb97ead33ac%26sysparm_view%3Dsent%26sysparm_query%3Dmailbox%3Dsent%5Esys_created_onONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)%5EEQ%26sysparm_clear_stack%3Dtrue
+                  4. Click into the notification with the subject line 'INC0010708 has new work notes' generated about the time Work Notes were added
+                  5. Verify the recipient is the group ServiceNow-AV.
+                  6. Scroll down the record to the related link 'Preview HTML Body' and click it to verify the emails body. It should contain:
+                    -Body:
+                      -2019-04-24 09:36:37 CDT - Rich Cheek (Work notes) Work Notes Test 1
+                      -Take me to the incident
+                  7. Wait two minutes and navigate back to the incident that you had opened.
+                  8. Enter Work Notes of: Work Notes test 2
+                    - take note of the time saved and INC number.
+                  9. Wait a minute and visit the sent mail box and verify that a message was sent to the Assignment Group ServiceNow-AV at approximately the time saved
+                      -URL to sent mail: https://williamblairdev.service-now.com/nav_to.do?uri=%2Fsys_email_list.do%3Fsysparm_userpref_module%3D0271f5510a0a0b6100921bb97ead33ac%26sysparm_view%3Dsent%26sysparm_query%3Dmailbox%3Dsent%5Esys_created_onONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)%5EEQ%26sysparm_clear_stack%3Dtrue
+                  10. Click into the notification with the subject line 'INC0010708 has new work notes' generated about the time Work Notes were added
+                  11. Verify the recipient is the group ServiceNow-AV.
+                  12. Scroll down the record to the related link 'Preview HTML Body' and click it to verify the emails body. It should contain:
+                  -Body:
+                    -2019-04-24 09:36:37 CDT - Rich Cheek (Work notes) Work Notes Test 2
+                    -2019-04-24 09:36:37 CDT - Rich Cheek (Work notes) Work Notes Test 1
+                    -Take me to the incident
+                  13. Wait two minutes and navigate back to the incident that you had opened.
+                  14. Enter Work Notes of: Work Notes test 3
+                    - take note of the time saved and INC number.
+                  15. Wait a minute and visit the sent mail box and verify that a message was sent to the Assignment Group ServiceNow-AV at approximately the time saved
+                    -URL to sent mail: https://williamblairdev.service-now.com/nav_to.do?uri=%2Fsys_email_list.do%3Fsysparm_userpref_module%3D0271f5510a0a0b6100921bb97ead33ac%26sysparm_view%3Dsent%26sysparm_query%3Dmailbox%3Dsent%5Esys_created_onONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)%5EEQ%26sysparm_clear_stack%3Dtrue
+                  16. Click into the notification with the subject line 'INC0010708 has new work notes' generated about the time Work Notes were added
+                  17. Verify the recipient is the group ServiceNow-AV.
+                  18. Scroll down the record to the related link 'Preview HTML Body' and click it to verify the emails body. It should contain:
+                  -Body:
+                    -2019-04-24 09:36:37 CDT - Rich Cheek (Work notes) Work Notes Test 3
+                    -2019-04-24 09:36:37 CDT - Rich Cheek (Work notes) Work Notes Test 2
+                    -2019-04-24 09:36:37 CDT - Rich Cheek (Work notes) Work Notes Test 1
+                    -Take me to the incident
+                  13. Wait two minutes and navigate back to the incident that you had opened.
+                  14. Enter Work Notes of: Work Notes test 4
+                    - take note of the time saved and INC number.
+                  15. Wait a minute and visit the sent mail box and verify that a message was sent to the Assignment Group ServiceNow-AV at approximately the time saved
+                    -URL to sent mail: https://williamblairdev.service-now.com/nav_to.do?uri=%2Fsys_email_list.do%3Fsysparm_userpref_module%3D0271f5510a0a0b6100921bb97ead33ac%26sysparm_view%3Dsent%26sysparm_query%3Dmailbox%3Dsent%5Esys_created_onONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)%5EEQ%26sysparm_clear_stack%3Dtrue
+                  16. Click into the notification with the subject line 'INC0010708 has new work notes' generated about the time Work Notes were added
+                  17. Verify the recipient is the group ServiceNow-AV.
+                  18. Scroll down the record to the related link 'Preview HTML Body' and click it to verify the emails body. It should contain:
+                  -Body:
+                    -2019-04-24 09:36:37 CDT - Rich Cheek (Work notes) Work Notes Test 4
+                    -2019-04-24 09:36:37 CDT - Rich Cheek (Work notes) Work Notes Test 3
+                    -2019-04-24 09:36:37 CDT - Rich Cheek (Work notes) Work Notes Test 2
+                    -Take me to the incident
+
+
+                    Notifications 8,9
+
+                    1. Create a new incident with the following fields filled out: (visit incident form here: https://williamblairdev.service-now.com/incident.do?sys_id=-1)
+                      -Caller: Don Kenyon
+                      -Affected User: Melvin Martin
+                      -Category: Hardware
+                      -Subcategory: Error
+                      -Business Service: collaboration
+                      -Assignment Group: Database
+                      -Short Description: Test resolve email
+                      -Description: Test resolve email
+                      -Work Notes: Test resolve email
+                      -Assignment group: ServiceNow-AV
+                      -Assigned To: Val McGovern
+                    2. Save record
+                    3. Click Resolve UI Action
+                    4. Fill in mandatory fields:
+                      - Resolution Code: Solved Permanently
+                      - Resolution Notes: Resolved test incident
+                    5. Click Resolve UI action and note time resolved and INC number.
+                    5. Wait a minute and visit the sent mail box and verify that there are two messages sent with a subject containing resolved. One for Val McGovern and the other for Don Kenyon and Melvin Martin
+                      -URL to sent mail: https://williamblairdev.service-now.com/nav_to.do?uri=%2Fsys_email_list.do%3Fsysparm_userpref_module%3D0271f5510a0a0b6100921bb97ead33ac%26sysparm_view%3Dsent%26sysparm_query%3Dmailbox%3Dsent%5Esys_created_onONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)%5EEQ%26sysparm_clear_stack%3Dtrue
+                    6. Open the notification for Val McGoverm
+                    7. Scroll down the record to the related link 'Preview HTML Body' and click it to verify the emails body. It should contain:
+                      -Subject: ${number} has been resolved.
+                      -Body:
+                        -${number} has been resolved by Val McGovern
+                        -Resolution Code:
+                        -Resolution Notes:
+                        -take_me_to_incident button/script.
+                    8. Open the notification for Don Kenyon/ Melivin Martin
+                    9. Scroll down the record to the related link 'Preview HTML Body' and click it to verify the emails body. It should contain:
+                      -Subject: ${number} has been resolved.
+                      -Body:
+                        -${number} has been resolved by Val McGovern
+                        -Resolution Code:
+                        -Resolution Notes:
+                        -Accept Resolution button
+                        -Reopen Ticket Button
+                    10. Click the Accept Resolution button.
+                        - this should open a blank email in your machines email client with a subject of Re:INC0010746 - please close ticket and a to address of williamblairdev@service-now.com
+                        - send this email
+                        - Wait 2 minutes
+                        - Visit the incident noted above
+                        - See that the state of the incident is now 'Closed'
+                    11. Change the status of the incident to resolved, fill out mandatory fields and save the incident.
+                    12 Navigate back to the notification from step 9 and preview the HTML body.
+                    13. Click the reopen ticket button
+                      - this should open a blank email in your machines email client with a subject of Re:INC0010746 - please reopen and a to address of williamblairdev@service-now.com
+                      - send this email
+                      - Wait 2 minutes
+                      - Visit the incident noted above
+                      - See that the state of the incident is now 'In Progress'
+
+
+                    Notification 10
+
+                    1. Create a new incident with the following fields filled out: (visit incident form here: https://williamblairdev.service-now.com/incident.do?sys_id=-1)
+                      -Caller: Don Kenyon
+                      -Affected User: Melvin Martin
+                      -Category: Hardware
+                      -Subcategory: Error
+                      -Business Service: collaboration
+                      -Assignment Group: Database
+                      -Short Description: Test escalation email
+                      -Description: Test escalation email
+                      -Work Notes: Test escalation email
+                    2. Save record
+                    3. Update assignment group field to 'ServiceNow-AV'
+                    4. Save the record - note the time/incident number
+                    5. Wait a minute and visit the sent mail box and verify that a message was sent to the Assignment Group 'ServiceNow-AV' at approximately the time saved
+                      -URL to sent mail: https://williamblairdev.service-now.com/nav_to.do?uri=%2Fsys_email_list.do%3Fsysparm_userpref_module%3D0271f5510a0a0b6100921bb97ead33ac%26sysparm_view%3Dsent%26sysparm_query%3Dmailbox%3Dsent%5Esys_created_onONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)%5EEQ%26sysparm_clear_stack%3Dtrue
+                    6. Click into the notification with the incident number in the subject line
+                    7. Scroll down the record to the related link 'Preview HTML Body' and click it to verify the emails body. It should contain:
+                      -Subject: ${number} has been escalated to your group by ${sys_updated_by}
+                      -Body:
+                        -Description
+                        -Most recent work note
+                        -take_me_to_incident button/script.

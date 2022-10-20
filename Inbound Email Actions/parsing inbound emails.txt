@@ -1,0 +1,29 @@
+Parsing Inbound Email
+When email is received, ServiceNow parses the email and populates the properties on the global email variable.
+
+email.to: Contains a comma-separated list of email addresses in the To: and Cc: fields.
+email.direct: Contains a comma-separated list of email addresses in the To: field.
+email.copied: Contains a comma-separated list of email addresses in the Cc: field.
+email.body_text: Contains the body of the email as a plain text string.
+email.body_html: Contains the body of the email as an HTML string.
+email.from: Contains an email address that depends on the following conditions:
+If the address listed in the email Headers field matches an existing user’s Email address, this variable contains the user’s email address.
+If the address listed in the email Headers field does not match an existing user’s Email address, this variable contains the address listed in the email Headers field.
+email.from_sys_id: Contains the Sys ID of the user who sent the email to the instance.
+email.origemail: Contains the email sender’s address as listed in the email Headers field.
+email.subject: Contains the email’s subject as a plain text string.
+email.recipients: Contains a comma-separated list of recipient addresses.
+email.recipients_array: Contains the recipient addresses as an array.
+email.content_type: Contains the MIME content type of the email (for example,text/plain; charset=“us-ascii“ or text/html; charset=“us-ascii“).
+email.headers: Contains details about the sender, route, and receiver as a plain text string in the format of the sending email client.
+If an email body contains name/value pairs with this syntax:
+
+<string>:<string>
+
+then an email object property is automatically created and populated. For example, if the string Var1:Value1 appears in the email body, the property email.body.var1 is created and the property value is Value1.
+
+ServiceNow parses data from the inbound email into the email variable.
+To see several of the email object values from the parsed message, use the Application Navigator to open System Mailboxes > Inbound > Received.
+
+In the Received mailbox you can see the subject, recipients, body, content type, and headers.
+Log in to provide feedback to improve your experience

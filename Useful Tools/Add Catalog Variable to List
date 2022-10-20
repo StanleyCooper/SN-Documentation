@@ -1,0 +1,17 @@
+After having to play around with variables quite a bit in a recent project, I thought I'd share how to display variables on a list of Requested Items / Catalog Tasks. This applies to lists and related lists, as reports have their own method of displaying variables. Important note: This was performed on Fuji. Your experience may differ on older versions of ServiceNow.
+
+Step 1 Identify the variables you'd like to display on your list, then copy the sys_id for each variable. This is as simple as heading to the Catalog Item, and jumping into the variable(s) in question. We'll need the sys_id to add the column into the list.
+
+Step 2 Head over to System UI -> Lists
+
+Step 3 Identify the list you'd like to display the variable(s) on. We're looking for one of two things here. Either the name of the view of the list you'd like to include the variable(s) on (I highly recommend creating a new view instead of using the Default view for this, as most likely the variables will apply to certain catalog items instead of every single one), or for a related list look at the Parent and Relationship columns for the table and name of the tab for the related list. Head into the list when you've found it.
+
+
+
+Step 4 Create a new List Element(s) from the related list at, using "variables.sys_id" (no quotes) in the actual Element field on the List Element form. Create a new List Element for each variable you wish to add.
+
+
+
+Step 5 Head over to the list where variables were just added. They won't show up immediately, so don't panic. Edit the list layout, and move around the variables to the spots you'd like them in the list (even if the position is already how you'd like it, move a variable one position up/down, then move it back and save). At this point, the variables should be visible!
+
+Hope this helps at least one person out there. Take care!

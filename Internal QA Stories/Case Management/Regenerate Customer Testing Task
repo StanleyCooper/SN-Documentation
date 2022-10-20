@@ -1,0 +1,26 @@
+Steps to test:
+-Navigate to the following URL: https://aptrisdev.service-now.com/navpage.do
+-Navigate to Cases  > Create New
+-In the account field select Harvard Medical School
+-In the contact field select Cristol Gregory
+-In the Entitlement field select Harvard Medical School SmartTeam
+-In the update set field enter 'Test'
+-Save the case
+-Navigate to the bottom of the page to the Customer Testing Tasks tab
+-Click 'New' to generate a new customer testing task
+-Enter 'Test' in the Subject
+-Enter Cristol Gregory in the Assigned To
+-Enter the state as 'Open'
+-Enter 'Test' into the field "Test Case"
+-Save the record
+-Change the 'Test Result' variable from -none- to Fail.
+-Save the record
+-Verify the visibility of a new UI action called 'Regenerate Customer Testing Task'.
+-Click 'Regenerate Customer Testing Task'
+-A new customer testing task has been created with an info message along the top stating 'Regenerated Customer Testing Task'.
+-Verify that the Test case field matches the previous test case field
+-Verify the Assigned to is Cristol Gregory
+-Verify the state is Draft
+-Verify the Test Result is -none-
+-Navigate to the parent Case
+-Verify that there are now two cases under the 'Customer Testing Tasks' tab.
